@@ -15,7 +15,8 @@ Imports:
     e1071,
     emoa,
     lhs,
-    stringr
+    stringr,
+    prodlim
 RoxygenNote: 5.0.1
 Suggests: testthat
 URL: http://github.com/ingridas/EPICR
