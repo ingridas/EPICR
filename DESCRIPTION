@@ -18,3 +18,5 @@ Imports:
     stringr
 RoxygenNote: 5.0.1
 Suggests: testthat
+URL: http://github.com/ingridas/EPICR
+BugReports: http://github.com/ingridas/EPICR/issues
