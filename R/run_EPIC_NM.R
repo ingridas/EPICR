@@ -3,20 +3,21 @@
 #' @param maxEval - maximum number of evaluations
 #' @param nobj - number of objectives
 #' @param nvar - number of decision variables
-#' @param  L,U - row vectors of lower and upper bounds of the design space
+#' @param L,U - row vectors of lower and upper bounds of the design space
 #' @param func - TRUE, if there is availble function, FALSE if we have only a table of evaluated data (experiments)
 #' @param local.search - indicates what EPIC version will be run. TRUE - enhanced EPIC version,FALSE -  the original one. DEFAULT = TRUE.
 #' @param problem.name - the string of problem corresponding to its function, NULL - if problem function is unavailable
 #' @param p.next -  the propbability value used to select a decision vector, defalut value is 0.6
 #' @param p.pareto -  indicator used to assign points to one of the set: dominated or nondominated, default value is 0.7
 #' @param strategy - strategy id used to select nex vector to evaluate, default value is 1
+#' @param repN - a size of decision space representation sample
 #' @param absmin - the estimate of minimum values of objective function (if not provided, calculated minimum value is used)
 #' @param absmax - the estimate of maximum values of objective functions (if not provided we will use the max value of Y)
 #' @param con - constraints, an analytical function cheap to evaluate, in a form g_i(x)>=0, if available; otherwise it is equal to FALSE
 #' @param stopping - an indicator used to stop an algorithm at every iteration; TRUE - if algorithm is stopping, otherwise FALSE
 #' @return Pareto optimal solutions of evaluated vectors as well as all evaluated solutions.
 
-run_epic_nm <- function(maxEval,nobj,nvar,L,U,func,local.search = TRUE,problem.name = NULL,p.next = 0.6,p.pareto = 0.7,strategy = 1,absmin,absmax,con = FALSE,stopping = FALSE){
+run_epic_nm <- function(maxEval,nobj,nvar,L,U,func,problem.name = NULL,local.search = TRUE,p.next = 0.6,p.pareto = 0.7,strategy = 1,repN = 500,absmin = NULL,absmax = NULL,con = FALSE,stopping = FALSE){
 
   if (missing(maxEval) | maxEval<=0)
     stop("Need to specify number of evaluation as a positive integer")
@@ -45,13 +46,13 @@ run_epic_nm <- function(maxEval,nobj,nvar,L,U,func,local.search = TRUE,problem.n
   }
 
   check.min <- FALSE
-  if (missing(absmin) | length(absmin) < nobj){
+  if (is.null(absmin) | length(absmin) < nobj){
     print("You didn't specify correct estimated minimum objective values; minimum values will be used")
     check.min <- TRUE
     }
 
   check.max <- FALSE
-  if (missing(absmax) | length(absmax) < nobj){
+  if (is.null(absmax) | length(absmax) < nobj){
     print("You didn't specify correct estimated maximum objective values; maximum values will be used")
     check.max <- TRUE
     }
@@ -65,7 +66,6 @@ run_epic_nm <- function(maxEval,nobj,nvar,L,U,func,local.search = TRUE,problem.n
 
 
   np <- 1              # number of points for simultaneous evaluations
-  repN <- 500          # decision space representation sample size; it can be any number;
 
   # output files storing the results
   temp.decision.file <- "decision.txt"
