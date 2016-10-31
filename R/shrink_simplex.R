@@ -53,7 +53,7 @@ shrink_simplex <- function(iter,delta,con,L,U){
   }
   if(i>0){
     iter$simplex.x[(k+1):(var+1),] <- new.x
-    iter$x <- new.x
+    iter$x <- as.matrix(new.x)
   }else{
     stop('Shrinked simplex is infeasible') # for testing purpose
   }
