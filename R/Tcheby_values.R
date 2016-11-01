@@ -1,5 +1,5 @@
 #' Converts a multiobjective problem into a scalarized single objective using weighted augmented Chebyshev approach
-#' @param y - objective values of a multiobjective problem
+#' @param y - objective values of a multiobjective problem in a matrix form
 #' @param gwv - a weigthing vector
 #' @param absmin - minimal values of objectives
 #' @param absmax - maximal values of objectives
@@ -12,9 +12,10 @@ Tcheby_values <- function(y,gwv,absmin,absmax){
   if (length(absmax) < 1){
     absmax <- apply(y, 2, max)
   }
-    if(is.null(nrow(y))){
-      y <- t(y)
-    }
+  # check the dimensions of y and transpose if needed
+  if(dim(y)[2] != length(absmin)){
+    y <- t(y)
+  }
     # normalize objective values to [0 1]
     yy <- sweep(y,2,absmin,"-")
     yy <- sweep(yy,2,absmax - absmin, "/")
