@@ -14,7 +14,9 @@ iterate_EPIC_NM(wv, i, con, L, U, p.next, p.pareto, strategy, iter, absmin,
 
 \item{con}{- constraints, an analytical function cheap to evaluate, in a form g_i(x)>=0, if available; otherwise it is equal to FALSE}
 
-\item{L, }{U - row vectors of lower and upper bounds of the design space}
+\item{L}{- row vector of lower bounds of the design space}
+
+\item{U}{- row vector of upper bounds of the design space}
 
 \item{p.next}{- probability used to select a next decision vector}
 
@@ -36,4 +38,3 @@ iter -  an updated list
 \description{
 Performs one iteration of EPIC algorithm
 }
-

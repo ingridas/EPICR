@@ -7,9 +7,9 @@
 check_improvement(previous.front, current.front)
 }
 \arguments{
-\item{previous.P}{- nondominated solutions in the objective space of the solution set obtained 5 evaluations ago}
+\item{previous.front}{- nondominated solutions in the objective space of the solution set obtained 5 evaluations ago}
 
-\item{current.P}{- nondominated solutions in the objective space of the current solution set}
+\item{current.front}{- nondominated solutions in the objective space of the current solution set}
 }
 \value{
 TRUE or FALSE
@@ -17,4 +17,3 @@ TRUE or FALSE
 \description{
 This function checks if there is an improvement based on HV metric;
 }
-

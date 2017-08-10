@@ -7,6 +7,8 @@
 #' @examples
 #' is_feasible(c(3,5), c(2,1), c(5,4))
 #' is_feasible(c(3,5), c(2,1), c(5,6))
+#' @export
+
 is_feasible <- function(V,L,U){
   if (all(V<=U) & all(V>=L)){
     k <- TRUE

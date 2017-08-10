@@ -23,4 +23,3 @@ Checks if a vector V is feasible in the decision space bounded by box constraint
 is_feasible(c(3,5), c(2,1), c(5,4))
 is_feasible(c(3,5), c(2,1), c(5,6))
 }
-

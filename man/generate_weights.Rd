@@ -23,4 +23,3 @@ the previous one. It uses the method of generating reflected k-ary Gray codes.
 generate_weights(10, 2)
 generate_weights(5, 3)
 }
-

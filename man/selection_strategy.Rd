@@ -27,4 +27,3 @@ I - index of the selectec decision vector from Xu
 \description{
 Selects a decision vector from a set representing the decision space
 }
-

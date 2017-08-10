@@ -2,21 +2,80 @@
 % Please edit documentation in R/test_problems.R
 \name{zdt1}
 \alias{zdt1}
-\title{Set of multiobjective benchamrk test including ZDT test functions, OKA2, Viennet and TF4 (a constrained problem)}
+\alias{zdt2}
+\alias{zdt3}
+\alias{zdt4}
+\alias{zdt6}
+\alias{oka2}
+\alias{viennet}
+\alias{kursawe}
+\alias{TF4}
+\alias{TF4_con}
+\alias{dtlz1}
+\alias{dtlz2}
+\alias{dtlz3}
+\alias{dtlz4}
+\alias{dtlz5}
+\alias{dtlz6}
+\alias{dtlz7}
+\alias{dtlz8}
+\alias{dtlz8_con}
+\alias{dtlz9}
+\alias{dtlz9_con}
+\title{Set of multiobjective benchmark tests including ZDT test functions, OKA2, Viennet,9 of DTLZ problems and TF4 (a constrained problem)}
 \usage{
 zdt1(x)
+
+zdt2(x)
+
+zdt3(x)
+
+zdt4(x)
+
+zdt6(x)
+
+oka2(x)
+
+viennet(x)
+
+kursawe(x)
+
+TF4(x)
+
+TF4_con(x)
+
+dtlz1(x)
+
+dtlz2(x)
+
+dtlz3(x)
+
+dtlz4(x)
+
+dtlz5(x)
+
+dtlz6(x)
+
+dtlz7(x)
+
+dtlz8(x)
+
+dtlz8_con(x)
+
+dtlz9(x)
+
+dtlz9_con(x)
 }
 \arguments{
 \item{x}{- is a decision vector of lenght \code{n}}
 }
 \value{
-function output as a vector of lenght 2 or 3
+a vector of function values
 }
 \description{
-Set of multiobjective benchamrk test including ZDT test functions, OKA2, Viennet and TF4 (a constrained problem)
+Set of multiobjective benchmark tests including ZDT test functions, OKA2, Viennet,9 of DTLZ problems and TF4 (a constrained problem)
 }
 \examples{
 oka2(c(1,2,3))
 zdt1(c(2,2,2))
 }
-

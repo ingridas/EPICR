@@ -15,4 +15,3 @@ iter - updated information of the the current EPIC iteration
 \description{
 Finds the centroid of the simplex
 }
-

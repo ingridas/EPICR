@@ -10,7 +10,9 @@ transform_simplex(iter, L, U, con)
 \arguments{
 \item{iter}{- a list conatining all the information related with the current algorithm iteration}
 
-\item{L, }{U - row vectors of lower and upper bounds of the design space}
+\item{L}{- row vectors of lower bounds of the design space}
+
+\item{U}{- row vectors of upper bounds of the design space}
 
 \item{con}{- constraints, an analytical function cheap to evaluate, in a form g_i(x)>=0, if available; otherwise it is equal to FALSE}
 }
@@ -21,4 +23,3 @@ an updated list with the information about the current EPIC algorithm iteration
 Updates the simplex with obtained new values and proceed with the following simplex operation untill
 the new decision vector is generated and requires a function evaluation
 }
-

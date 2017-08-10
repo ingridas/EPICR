@@ -20,4 +20,3 @@ ip - logical indicator, TRUE if solution is nondominated, FALSE if solution is d
 Generates normalized weight vector of k dimensions and s divisions, so that each weight vector is near
 the previous one. It uses the method of generating reflected k-ary Gray codes.
 }
-

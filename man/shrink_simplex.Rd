@@ -21,4 +21,3 @@ iter -  an updated list
 \description{
 This function performs simplex shrink operation. It replaces all but the best vertice by newly calculated
 }
-

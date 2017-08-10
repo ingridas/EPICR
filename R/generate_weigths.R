@@ -7,6 +7,7 @@
 #' @examples
 #' generate_weights(10, 2)
 #' generate_weights(5, 3)
+#' @export
 
 generate_weights <- function(s,k){
 

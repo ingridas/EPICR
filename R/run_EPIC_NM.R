@@ -1,3 +1,8 @@
+#' @importFrom stats predict
+#' @importFrom utils read.table write.table
+#' @importFrom lhs augmentLHS
+NULL
+
 #' This is a main function which iterates an EPIC algorithm function, saves data
 #'
 #' @param maxEval - maximum number of evaluations
@@ -81,7 +86,7 @@ run_epic_nm <- function(maxEval,nobj,nvar,L,U,func,problem.name = NULL,local.sea
       i <- temp[[1]]   # first element in the list
       wv <- temp[[2]]  # second element in the list
       # read evaluated response from the file
-      temp.resp <- as.matrix(read.table(temp.response.file, sep = "\t"))
+      temp.resp <- as.matrix(utils::read.table(temp.response.file, sep = "\t"))
       # and remove that temporary file
       file.remove(temp.response.file)
       colnames(temp.resp) <- NULL
@@ -106,7 +111,7 @@ run_epic_nm <- function(maxEval,nobj,nvar,L,U,func,problem.name = NULL,local.sea
   ## ---------------------INITIALIZATION ----------------------------------
   if (do.init){
     # -------------- Reading an initial sample from a file ------------------------
-    initSample <- as.matrix(read.table(init.sample.file, sep = "\t"))
+    initSample <- as.matrix(utils::read.table(init.sample.file, sep = "\t"))
     colnames(initSample) <- NULL
     initEval <- nrow(initSample)
     # separate X and Y
@@ -119,7 +124,7 @@ run_epic_nm <- function(maxEval,nobj,nvar,L,U,func,problem.name = NULL,local.sea
     initDesign <- t(initDesign)
     # use an adaptive sampling to add new points
     #x <- matrix(NA,nrow = repN, ncol = nvar)
-    XX <- augmentLHS(initDesign,repN)
+    XX <- lhs::augmentLHS(initDesign,repN)
     # denormalize
     XX <- apply(XX, MARGIN = 1, FUN = function(X) (X * (U-L)+L))
     XX <- t(XX)
@@ -135,7 +140,7 @@ run_epic_nm <- function(maxEval,nobj,nvar,L,U,func,problem.name = NULL,local.sea
       }
     }
     # remove already evaluated points,i.e. rows from Xe matching rows in XX, unevaluated set
-    k<-row.match(data.frame(Xe),data.frame(XX),nomatch = 0)
+    k<-prodlim::row.match(data.frame(Xe),data.frame(XX),nomatch = 0)
     # remove evaluated points from the set of unevaluated ones (design space representation)
     Xu <- XX[-k,] # unevaluated designs in the decision space
 
@@ -194,9 +199,9 @@ run_epic_nm <- function(maxEval,nobj,nvar,L,U,func,problem.name = NULL,local.sea
       }else if(stopping){
         # ask user to evaluate next decision vector
         if (is.array(iter$x)){
-          write.table(iter$x,temp.decision.file,sep="\t", col.names = F, row.names = F)
+          utils::write.table(iter$x,temp.decision.file,sep="\t", col.names = F, row.names = F)
         }else{
-          write.table(t(as.matrix(iter$x)),temp.decision.file,sep="\t", col.names = F, row.names = F)
+          utils::write.table(t(as.matrix(iter$x)),temp.decision.file,sep="\t", col.names = F, row.names = F)
         }
         print(paste('Please evaluate the decision vector(s) written to the file: ',temp.decision.file))
         # save intermediate results and halt the algorithm
@@ -238,6 +243,6 @@ run_epic_nm <- function(maxEval,nobj,nvar,L,U,func,problem.name = NULL,local.sea
   final <- as.matrix(cbind(final.Xep,final.Yep))
   final_all <- as.matrix(cbind(iter$Xe,iter$Ye))
   # and print the results to the file
-  write.table(final,file="Results_nondominated_solutions",sep="\t", col.names = F, row.names = F)
-  write.table(final_all,file="Results_all_evaluated_solutions",sep="\t", col.names = F, row.names = F)
+  utils::write.table(final,file="Results_nondominated_solutions",sep="\t", col.names = F, row.names = F)
+  utils::write.table(final_all,file="Results_all_evaluated_solutions",sep="\t", col.names = F, row.names = F)
 }

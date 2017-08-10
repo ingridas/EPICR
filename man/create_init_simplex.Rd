@@ -21,4 +21,3 @@ initial simplex used in a local search; it's a matrix (N+1) x (N+1), where rows 
 \description{
 Generates a simplex from the evaluated decicion vectors and coresponding scalarized objective value.
 }
-

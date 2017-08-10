@@ -17,4 +17,3 @@ True, if vector V is feasible; FALSE, otherwise
 \description{
 Checks if a vector V is feasible in the decision space constrained by function con
 }
-

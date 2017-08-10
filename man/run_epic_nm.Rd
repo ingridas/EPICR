@@ -4,9 +4,10 @@
 \alias{run_epic_nm}
 \title{This is a main function which iterates an EPIC algorithm function, saves data}
 \usage{
-run_epic_nm(maxEval, nobj, nvar, L, U, func, local.search = TRUE,
-  problem.name = NULL, p.next = 0.6, p.pareto = 0.7, strategy = 1,
-  absmin, absmax, con = FALSE, stopping = FALSE)
+run_epic_nm(maxEval, nobj, nvar, L, U, func, problem.name = NULL,
+  local.search = TRUE, p.next = 0.6, p.pareto = 0.7, strategy = 1,
+  repN = 500, absmin = NULL, absmax = NULL, con = FALSE,
+  stopping = FALSE)
 }
 \arguments{
 \item{maxEval}{- maximum number of evaluations}
@@ -19,15 +20,17 @@ run_epic_nm(maxEval, nobj, nvar, L, U, func, local.search = TRUE,
 
 \item{func}{- TRUE, if there is availble function, FALSE if we have only a table of evaluated data (experiments)}
 
-\item{local.search}{- indicates what EPIC version will be run. TRUE - enhanced EPIC version,FALSE -  the original one. DEFAULT = TRUE.}
-
 \item{problem.name}{- the string of problem corresponding to its function, NULL - if problem function is unavailable}
+
+\item{local.search}{- indicates what EPIC version will be run. TRUE - enhanced EPIC version,FALSE -  the original one. DEFAULT = TRUE.}
 
 \item{p.next}{-  the propbability value used to select a decision vector, defalut value is 0.6}
 
 \item{p.pareto}{-  indicator used to assign points to one of the set: dominated or nondominated, default value is 0.7}
 
 \item{strategy}{- strategy id used to select nex vector to evaluate, default value is 1}
+
+\item{repN}{- a size of decision space representation sample}
 
 \item{absmin}{- the estimate of minimum values of objective function (if not provided, calculated minimum value is used)}
 
@@ -43,4 +46,3 @@ Pareto optimal solutions of evaluated vectors as well as all evaluated solutions
 \description{
 This is a main function which iterates an EPIC algorithm function, saves data
 }
-

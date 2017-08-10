@@ -7,13 +7,13 @@
 best_parameters_cross(x, y, v, w)
 }
 \arguments{
-\item{x}{- decision values}
+\item{x}{- classifications data}
+
+\item{y}{- decision values}
 
 \item{v}{- number of folds}
 
 \item{w}{- weight}
-
-\item{X}{- classifications data}
 }
 \value{
 The best values of gamma and C
@@ -21,4 +21,3 @@ The best values of gamma and C
 \description{
 Performs cross validation and returns the best parameters values of SVM
 }
-

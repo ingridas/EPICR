@@ -1,7 +1,10 @@
+#' @importFrom e1071 svm
+NULL
+
 #' Performs cross validation and returns the best parameters values of SVM
 #'
-#' @param X - classifications data
-#' @param x - decision values
+#' @param x - classifications data
+#' @param y - decision values
 #' @param v - number of folds
 #' @param w - weight
 #' @return The best values of gamma and C
@@ -26,7 +29,7 @@ gam <- matrix(rep(log2g_list,m),nrow = n)
 cv_acc <- 0
 bestcv <- -10
 for (i in 1:length(C)){
-mod <- svm(x, y, gamma = 2^gam[i], cost = 2^C[i], class.weights = c(dominated = 1,nondominated = w), cross = v, probability = TRUE)
+mod <- e1071::svm(x, y, gamma = 2^gam[i], cost = 2^C[i], class.weights = c(dominated = 1,nondominated = w), cross = v, probability = TRUE)
 cv_acc <- mod$tot.accuracy
 if (cv_acc > bestcv){
   bestcv <- cv_acc
@@ -51,7 +54,7 @@ gam <- matrix(rep(log2g_list,m),nrow = n)
 
 cv_acc <- 0
 for (i in 1:length(C)){
-  mod <- svm(x, y, gamma = 2^gam[i], cost = 2^C[i], class.weights = c(dominated = 1,nondominated = w), cross = v, probability = TRUE)
+  mod <- e1071::svm(x, y, gamma = 2^gam[i], cost = 2^C[i], class.weights = c(dominated = 1,nondominated = w), cross = v, probability = TRUE)
   cv_acc = mod$tot.accuracy
   if (cv_acc > bestcv){
     bestcv <- cv_acc
@@ -77,7 +80,7 @@ gam <- matrix(rep(log2g_list,m),nrow = n)
 
 cv_acc <- 0
 for (i in 1:length(C)){
-  mod <- svm(x, y, gamma = 2^gam[i], cost = 2^C[i], class.weights = c(dominated = 1,nondominated = w), cross = v, probability = TRUE)
+  mod <- e1071::svm(x, y, gamma = 2^gam[i], cost = 2^C[i], class.weights = c(dominated = 1,nondominated = w), cross = v, probability = TRUE)
   cv_acc <- mod$tot.accuracy
   if (cv_acc > bestcv){
     bestcv <- cv_acc

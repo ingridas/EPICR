@@ -3,7 +3,8 @@
 #' @param wv - a weighting vector
 #' @param i - iteration number
 #' @param con - constraints, an analytical function cheap to evaluate, in a form g_i(x)>=0, if available; otherwise it is equal to FALSE
-#' @param L, U - row vectors of lower and upper bounds of the design space
+#' @param L - row vector of lower bounds of the design space
+#' @param U - row vector of upper bounds of the design space
 #' @param p.pareto - indicator used to assign points to one of the set: dominated or nondominated
 #' @param p.next - probability used to select a next decision vector
 #' @param strategy - strategy used to select the nex vector to evaluate
@@ -79,7 +80,7 @@ iterate_EPIC_NM <- function(wv,i,con,L,U,p.next,p.pareto,strategy,iter,absmin,ab
       # print(model$tot.accuracy)
 
       # ------------------ Training set - evaluated vectors ----------------------
-      pred <- predict(model,iter$Xe, decision.values = TRUE, probability = TRUE)
+      pred <- stats::predict(model,iter$Xe, decision.values = TRUE, probability = TRUE)
       prob <- attr(pred, "probabilities")  # probabilities
       prob.non <- subset(prob,select = nondominated)
       nondom <- which(prob.non >= 0.5)

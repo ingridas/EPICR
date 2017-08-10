@@ -1,9 +1,10 @@
-#' Set of multiobjective benchamrk test including ZDT test functions, OKA2, Viennet,9 of DTLZ problems and TF4 (a constrained problem)
+#' Set of multiobjective benchmark tests including ZDT test functions, OKA2, Viennet,9 of DTLZ problems and TF4 (a constrained problem)
 #' @param x - is a decision vector of lenght \code{n}
 #' @return a vector of function values
 #' @examples
 #' oka2(c(1,2,3))
 #' zdt1(c(2,2,2))
+#' @export
 
 zdt1 <- function (x) {
   f <- numeric(2)
@@ -14,6 +15,9 @@ zdt1 <- function (x) {
   return(f)
 }
 
+#' @rdname zdt1
+#' @export
+
 zdt2 <- function (x) {
   f <- numeric(2)
   n <- length(x)
@@ -22,6 +26,9 @@ zdt2 <- function (x) {
   f[2] <- g * (1 - (f[1] / g)^2)
   return(f)
 }
+
+#' @rdname zdt1
+#' @export
 
 zdt3 <- function (x) {
   f <- numeric(2)
@@ -32,6 +39,9 @@ zdt3 <- function (x) {
   return(f)
 }
 
+#' @rdname zdt1
+#' @export
+
 zdt4 <- function (x) {
   f <- numeric(2)
   n <- length(x)
@@ -40,6 +50,9 @@ zdt4 <- function (x) {
   f[2] <- g * (1 - sqrt(f[1] / g))
   return(f)
 }
+
+#' @rdname zdt1
+#' @export
 
 zdt6 <- function (x) {
   f <- numeric(2)
@@ -50,12 +63,18 @@ zdt6 <- function (x) {
   return(f)
 }
 
+#' @rdname zdt1
+#' @export
+
 oka2 <- function (x) {
   f <- numeric(2)
   f[1] <- x[1]
   f[2] <- 1 - (1./(4.*pi^2))*(x[1] + pi)^2 + abs(x[2] - 5*cos(x[1]))^(1./3) + abs(x[3] - 5.*sin(x[1]))^(1./3)
   return(f)
 }
+
+#' @rdname zdt1
+#' @export
 
 viennet <- function (x) {
   f <- numeric(3)
@@ -64,6 +83,9 @@ viennet <- function (x) {
   f[3] <- 1.0/(x[1]^2 + x[2]^2 + 1) - 1.1*exp(-(x[1]^2 + x[2]^2))
   return(f)
 }
+
+#' @rdname zdt1
+#' @export
 
 kursawe <- function (x) {
   n <- length(x)
@@ -76,12 +98,18 @@ kursawe <- function (x) {
 }
 
 # this function is constrained
+#' @rdname zdt1
+#' @export
+
 TF4 <- function (x) {
   y <- numeric(2)
   y[1] <- x[1]^2 -x[2]
   y[2] <- -0.5*x[1]-x[2]-1
   return(y)
 }
+
+#' @rdname zdt1
+#' @export
 
 TF4_con <- function (x) {
   g <- numeric(3)
@@ -90,6 +118,9 @@ TF4_con <- function (x) {
   g[3] <- 20 - 5*x[1] - x[2]
   return(g)
 }
+
+#' @rdname zdt1
+#' @export
 
 dtlz1 <- function(x) {
   k <- 10 # recommended value
@@ -115,6 +146,9 @@ dtlz1 <- function(x) {
   return(y)
 }
 
+#' @rdname zdt1
+#' @export
+
 dtlz2 <- function(x) {
   k <- 10 # recommended value
   n <- length(x)
@@ -138,6 +172,9 @@ dtlz2 <- function(x) {
   y[M] <- (1 + g) * sin(x[1] * pi / 2)
   return(y)
 }
+
+#' @rdname zdt1
+#' @export
 
 dtlz3 <- function(x){
   k <- 10 # recommended value
@@ -163,6 +200,9 @@ dtlz3 <- function(x){
   return(y)
 }
 
+#' @rdname zdt1
+#' @export
+
 dtlz4 <- function(x){
   k <- 10 # recommended value
   n <- length(x)
@@ -187,6 +227,9 @@ dtlz4 <- function(x){
   y[M] <- (1 + g) * sin(x[1] * pi / 2)
   return(y)
 }
+
+#' @rdname zdt1
+#' @export
 
 dtlz5 <- function(x) {
 
@@ -222,6 +265,9 @@ dtlz5 <- function(x) {
   return(y)
 }
 
+#' @rdname zdt1
+#' @export
+
 dtlz6 <- function(x) {
 
   k <- 10 # recommended value
@@ -256,6 +302,9 @@ dtlz6 <- function(x) {
   return(y)
 }
 
+#' @rdname zdt1
+#' @export
+
 dtlz7 <- function(x){
 
   k <- 10 # recommended value
@@ -274,6 +323,9 @@ dtlz7 <- function(x){
 }
 
 # this problem is constrained
+#' @rdname zdt1
+#' @export
+
 dtlz8 <- function(x){
 
   n <- length(x)
@@ -287,6 +339,9 @@ dtlz8 <- function(x){
   }
   return(y)
 }
+
+#' @rdname zdt1
+#' @export
 
 dtlz8_con <- function(x){
 
@@ -319,6 +374,9 @@ dtlz8_con <- function(x){
 }
 
 # this problem is constrained
+#' @rdname zdt1
+#' @export
+
 dtlz9 <- function(x){
 
   n <- length(x)
@@ -332,6 +390,9 @@ dtlz9 <- function(x){
   }
   return(y)
 }
+
+#' @rdname zdt1
+#' @export
 
 dtlz9_con <- function(x){
 

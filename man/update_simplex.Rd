@@ -19,4 +19,3 @@ an updated list with the information about the current EPIC algorithm iteration
 \description{
 Updates the simplex used in a local search of EPIC algorithm
 }
-

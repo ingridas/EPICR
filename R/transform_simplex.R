@@ -2,7 +2,8 @@
 #' the new decision vector is generated and requires a function evaluation
 #'
 #' @param iter - a list conatining all the information related with the current algorithm iteration
-#' @param L, U - row vectors of lower and upper bounds of the design space
+#' @param L - row vectors of lower bounds of the design space
+#' @param U - row vectors of upper bounds of the design space
 #' @param con - constraints, an analytical function cheap to evaluate, in a form g_i(x)>=0, if available; otherwise it is equal to FALSE
 #' @return an updated list with the information about the current EPIC algorithm iteration
 

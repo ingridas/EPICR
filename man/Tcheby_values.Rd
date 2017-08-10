@@ -7,7 +7,7 @@
 Tcheby_values(y, gwv, absmin, absmax)
 }
 \arguments{
-\item{y}{- objective values of a multiobjective problem}
+\item{y}{- objective values of a multiobjective problem in a matrix form}
 
 \item{gwv}{- a weigthing vector}
 
@@ -21,4 +21,3 @@ k - objective value of a scalarized problem
 \description{
 Converts a multiobjective problem into a scalarized single objective using weighted augmented Chebyshev approach
 }
-
