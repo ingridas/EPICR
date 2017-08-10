@@ -2,14 +2,11 @@ Package: EPICR
 Type: Package
 Title: An Implementation of Efficient Pareto Iterative Classification Method
 Version: 0.1
-Date: 2016-08-09
-Authors@R: person("Ingrida", "Steponavice", email = "ingrida.steponavice@monash.edu", role = c("aut", "cre"))
-Description: It implements the Efficient Pareto Iterative Classification
-    (EPIC) method for costly black-box multiobjective optimization problems which
-    approximates the Pareto optimal set with a limited number of objective function
-    evaluations. It also comes with an enhanced EPIC version using a local search to
-    explore a promising area locally by Nelder-Mead simplex method.
-License: What license is it under?
+Authors@R: c(
+  person("Rob", "Hyndman", email="Rob.Hyndman@monash.edu", role=c("aut","cre")),
+  person("Ingrida", "Steponavice", email = "ingrida.steponavice@monash.edu", role = "aut"))
+Description: Multiobjective optimization using the Efficient Pareto Iterative Classification (EPIC) method for costly black-box multiobjective optimization problems which approximates the Pareto optimal set with a limited number of objective function evaluations. It also comes with an enhanced EPIC version using a local search to explore a promising area locally by Nelder-Mead simplex method.
+License: GPL-3
 LazyData: TRUE
 Imports:
     e1071,
@@ -17,7 +14,7 @@ Imports:
     lhs,
     stringr,
     prodlim
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1
 Suggests: testthat
 URL: http://github.com/ingridas/EPICR
 BugReports: http://github.com/ingridas/EPICR/issues
