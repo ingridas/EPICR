@@ -1,4 +1,4 @@
-library(testthat)
-library(EPICR)
+Sys.setenv("R_TESTS" = "")
+if(require(testthat))
+  test_check("EPICR")
 
-test_check("EPICR")
